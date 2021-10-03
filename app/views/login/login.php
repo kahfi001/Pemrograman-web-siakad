@@ -12,7 +12,7 @@
         </div>
     </form>
     <a href="<?= BASEURL; ?>/dashboard">
-        <button type="submit" class="btn " style="background-color: #FFC007">Submit</button>
+        <button type="submit" class="btn btnLogin " style="background-color: #FFC007">Submit</button>
     </a>
 
 </div>
