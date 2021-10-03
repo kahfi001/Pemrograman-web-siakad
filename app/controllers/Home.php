@@ -3,7 +3,8 @@
 class Home extends Controller{
     public function index ()
     {
-        $this->view('template/header');
+        $data['tittle'] = 'Selamat Datang';
+        $this->view('template/header', $data);
         $this->view('home/halamanAwal');
         $this->view('template/footer');
     }

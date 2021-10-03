@@ -3,7 +3,8 @@
 class Login extends Controller{
     public function index()
     {
-        $this->view('template/header');
+        $data['tittle'] = 'Login';
+        $this->view('template/header', $data);
         $this->view('login/login');
         $this->view('template/footer');
     }

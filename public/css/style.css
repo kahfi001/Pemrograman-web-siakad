@@ -1,18 +1,17 @@
-
-body{
-    background-image: linear-gradient(90deg,#6C1891,#D260C7);
+body {
+  background-image: linear-gradient(90deg, #6c1891, #d260c7);
 }
 
-.container-login{
-    background-image: linear-gradient(135deg,rgba(255,255,255,0.4),rgba(255,255,255,0));
-    width: 50%;
-    margin: 100px auto;
-    padding: 40px;
-    border-radius: 5px;
-} 
-.btn{
-    width: 100%;
+.container-login {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  width: 50%;
+  margin: 100px auto;
+  padding: 40px;
+  border-radius: 5px;
 }
-.fitur:hover{
-    opacity: 0.8;
+.btnLogin {
+  width: 100%;
+}
+.fitur:hover {
+  opacity: 0.8;
 }
