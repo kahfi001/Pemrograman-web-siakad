@@ -7,19 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/dashboard">Beranda</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link" href="#">Data Sekolah</a>
+            <a class="nav-link" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link" href="#">Jadwal Pelajaran</a>
+            <a class="nav-link" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Raport </a>
+            <a class="nav-link" href="<?= BASEURL; ?>/raport">Raport </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Absen</a>
+            <a class="nav-link" href="<?= BASEURL; ?>/absen">Absen</a>
           </li>
         </ul>
       </div>
@@ -30,7 +30,7 @@
     <div class="">
       <img src="<?= BASEURL; ?>/img/foto.jpg" alt="..." class=" me-5 rounded-circle" width="100px">
     </div>
-    <div class="">
+    <div class="" style="color: #fff;">
       <h3 class="mb-0">Muhammad Kahfi</h3>
       <p class="mb-0">20051397014</p>
       <p class="mb-0">Mahasiswa</p>
