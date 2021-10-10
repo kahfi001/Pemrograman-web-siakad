@@ -4,7 +4,7 @@ class Raport extends Controller
 {
   public function index()
   {
-    $data['tittle'] = 'Dashboard';
+    $data['tittle'] = 'Raport';
     $this->view('template/header', $data);
     $this->view('template/navbar');
     $this->view('raport/raport');

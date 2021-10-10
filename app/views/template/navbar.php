@@ -7,19 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/dashboard">Beranda</a>
+            <a class="nav-link <?php ($tittle === 'Dashboard') ? 'active' : ''  ?> " href="<?= BASEURL; ?>/dashboard">Beranda</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
+            <a class="nav-link  <?php ($tittle === 'Data Sekolah') ? 'active' : ''  ?>" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
+            <a class="nav-link  <?php ($tittle === 'Mata Pelajaran') ? 'active' : ''  ?>" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= BASEURL; ?>/raport">Raport </a>
+            <a class="nav-link <?php ($tittle === 'Raport') ? 'active' : ''  ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= BASEURL; ?>/absen">Absen</a>
+            <a class="nav-link <?php ($tittle === 'Absen') ? 'active' : ''  ?>" href="<?= BASEURL; ?>/absen">Absen</a>
           </li>
         </ul>
       </div>

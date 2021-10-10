@@ -15,3 +15,8 @@ body {
 .fitur:hover {
   opacity: 0.8;
 }
+
+.btn-purple{
+  background-color: purple;
+  color: white;
+}

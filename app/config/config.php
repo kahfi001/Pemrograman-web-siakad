@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-define('BASEURL', 'http://localhost:8080/Pemrograman-web-siakad/public');
+define('BASEURL', 'http://localhost/Pemrograman-web-siakad/public');
 
 // Config DB
 define('DB_HOST', 'localhost');

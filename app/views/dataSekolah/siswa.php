@@ -6,6 +6,9 @@
       <option value="1">Kelas 1</option>
       <option value="2">Kelas 2</option>
       <option value="3">Kelas 3</option>
+      <option value="3">Kelas 4</option>
+      <option value="3">Kelas 5</option>
+      <option value="3">Kelas 6</option>
     </select>
     <br><br>
     <input class="form-control me-2" type="search" placeholder="Cari Siswa " aria-label="Cari Siswa">
@@ -30,11 +33,9 @@
         <td>Fiersa</td>
         <td>3214 </td>
         <td>1</td>
-        <td>fiersa@gmail.com</td>
+        <td>Kenjeran</td>
         <td>0823456789</td>
       </tr>
-
-
     </tbody>
   </table>
 
