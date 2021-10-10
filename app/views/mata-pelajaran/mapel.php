@@ -8,42 +8,15 @@
     <table class="table table-striped">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Mata Pelajaran</th>
-            <th scope="col">Kelas</th>
+                <th scope="col">Mata Pelajaran</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>PPKn</td>
-                <td>Kelas 1</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Bahasa Indonesia</td>
-                <td>Kelas 4</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Matematika</td>
-                <td>Kelas 5</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Bahasa Inggris</td>
-                <td>Kelas 6</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Olahraga</td>
-                <td>Kelas 2</td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>Seni Lukis</td>
-                <td>Kelas 2</td>
-            </tr>
+            <?php foreach ($data['mapel'] as $mapel) : ?>
+                <tr>
+                    <td><?= $mapel['nama_mapel']; ?></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
     
