@@ -7,7 +7,7 @@ class Database {
     private $db_name = DB_NAME;
 
     private $dbh;
-    private $statement;
+    private $stmt;
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class Database {
 
     public function query($query)
     {
-        $this->statement = $this->dbh->prepare($query);
+        $this->stmt = $this->dbh->prepare($query);
     }
 
     public function bind($param, $value, $type = null)
@@ -48,23 +48,28 @@ class Database {
             }
         }
 
-        $this->statement->bindValue($param, $value, $type);
+        $this->stmt->bindValue($param, $value, $type);
     }
 
     public function execute()
     {
-        $this->statement->execute();
+        $this->stmt->execute();
     }
 
     public function resultSet()
     {
         $this->execute();
-        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function single()
     {
         $this->execute();
-        return $this->statement->fetch(PDO::FETCH_ASSOC);
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function hitungBaris()
+    {
+        return $this->stmt->rowCount();
     }
 }

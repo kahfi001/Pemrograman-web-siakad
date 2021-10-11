@@ -30,27 +30,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="<?= BASEURL; ?>/mapel/addMapel" method="POST">
             <div class="mb-3">
                 <label class="form-label">Nama Mata Pelajaran</label>
-                <input type="text" class="form-control" id="inputNamaMapel" name="namaMapel">
+                <input type="text" class="form-control" id="namaMapel" name="namaMapel">
             </div>
-            <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option value ="0" selected>Pilih Kelas</option>
-                    <option value="1">Kelas 1</option>
-                    <option value="2">Kelas 2</option>
-                    <option value="3">Kelas 3</option>
-                    <option value="3">Kelas 4</option>
-                    <option value="3">Kelas 5</option>
-                    <option value="3">Kelas 6</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-purple">Submit</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

@@ -11,4 +11,12 @@ class Mapel extends Controller{
         $this->view('mata-pelajaran/mapel', $data);
         $this->view('template/footer');
     }
+
+    public function addMapel()
+    {
+        if ($this->model('mapel_model')->tambahDataMapel($_POST) > 0) {
+            header('Location: ' . BASEURL . '/mapel');
+            exit;
+        }
+    }
 }

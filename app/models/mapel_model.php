@@ -14,4 +14,17 @@ class mapel_model {
         $this->db->query('SELECT * FROM mapel');
         return $this->db->resultSet();
     }
+
+    public function tambahDataMapel($data)
+    {
+        $query = "INSERT INTO mapel VALUES ('', :namaMapel)";
+        $this->db->query($query);
+        $this->db->bind('nama_mapel', $data['namaMapel']);
+
+        $this->db->execute();
+
+        $count = $this->db->hitungBaris();
+
+        return $count;
+    }
 }
