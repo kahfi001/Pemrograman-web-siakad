@@ -6,7 +6,7 @@ class Dashboard extends Controller
   {
     $data['tittle'] = 'Dashboard';
     $this->view('template/header', $data);
-    $this->view('template/navbar');
+    $this->view('template/navbar', $data);
     $this->view('dashboard/dashboard');
     $this->view('template/footer');
   }

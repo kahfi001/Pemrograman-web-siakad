@@ -17,9 +17,9 @@ class mapel_model {
 
     public function tambahDataMapel($data)
     {
-        $query = "INSERT INTO mapel VALUES ('', :namaMapel)";
+        $query = 'INSERT INTO mapel (nama_mapel) VALUES (:nama_mapel)';
         $this->db->query($query);
-        $this->db->bind('nama_mapel', $data['namaMapel']);
+        $this->db->bind('nama_mapel', $data['nama_mapel']);
 
         $this->db->execute();
 

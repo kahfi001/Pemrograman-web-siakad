@@ -33,7 +33,7 @@
         <form action="<?= BASEURL; ?>/mapel/addMapel" method="POST">
             <div class="mb-3">
                 <label class="form-label">Nama Mata Pelajaran</label>
-                <input type="text" class="form-control" id="namaMapel" name="namaMapel">
+                <input type="text" class="form-control" id="nama_mapel" name="nama_mapel">
             </div>
             <button type="submit" class="btn btn-purple">Submit</button>
         </form>
