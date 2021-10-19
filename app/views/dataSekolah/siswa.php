@@ -17,8 +17,7 @@
   <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Foto</th>
+        <th scope="col">No.</th>
         <th scope="col">Name</th>
         <th scope="col">NIS</th>
         <th scope="col">Kelas</th>
@@ -27,15 +26,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td><img src="<?= BASEURL; ?>/img/bagas.jpg" alt="..." class=" me-5 " width="100px"></td>
-        <td>Fiersa</td>
-        <td>3214 </td>
-        <td>1</td>
-        <td>Kenjeran</td>
-        <td>0823456789</td>
-      </tr>
+      <?php foreach ($data['siswa'] as $siswa) : ?>
+        <tr>
+          <td><?= $siswa['id']; ?></td>
+          <td><?= $siswa['nama']; ?></td>
+          <td><?= $siswa['nis']; ?> </td>
+          <td><?= $siswa['kelas']; ?></td>
+          <td><?= $siswa['alamat']; ?></td>
+          <td><?= $siswa['no_hp']; ?></td>
+        </tr>
+      <?php endforeach; ?>
     </tbody>
   </table>
 
