@@ -11,7 +11,7 @@
   <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">No.</th>
         <th scope="col">Kelas</th>
         <th scope="col">Wali Kelas</th>
         <th scope="col">Jumlah Murid</th>
@@ -19,14 +19,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Kelas 1 </td>
-        <td>Endang Nurhayati </td>
-        <td>27</td>
-      </tr>
-
-
+      <?php foreach ($data['kelas'] as $kelas) : ?>
+        <tr>
+          <td><?= $kelas['id']; ?></td>
+          <td><?= $kelas['kelas']; ?></td>
+          <td><?= $kelas['wali_kelas']; ?> </td>
+          <td><?= $kelas['jumlah_murid']; ?></td>
+        </tr>
+      <?php endforeach; ?>
     </tbody>
   </table>
 

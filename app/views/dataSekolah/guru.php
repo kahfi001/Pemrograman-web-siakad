@@ -7,40 +7,25 @@
   <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Foto</th>
+        <th scope="col">No</th>
         <th scope="col">Name</th>
         <th scope="col">NIP</th>
+        <th scope="col">Alamat</th>
         <th scope="col">Email</th>
         <th scope="col">No.Hp</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td><img src="<?= BASEURL; ?>/img/bagas.jpg" alt="..." class=" me-5 " width="100px"></td>
-        <td>Fiersa</td>
-        <td>20051397014</td>
-        <td>fiersa@gmail.com</td>
-        <td>0823456789</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td><img src="<?= BASEURL; ?>/img/bagas.jpg" alt="..." class=" me-5 rounded-circle" width="100px"></td>
-        <td>Fiersa</td>
-        <td>20051397014</td>
-        <td>fiersa@gmail.com</td>
-        <td>0823456789</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><img src="<?= BASEURL; ?>/img/bagas.jpg" alt="..." class=" me-5 rounded-circle" width="100px"></td>
-        <td>Fiersa</td>
-        <td>20051397014</td>
-        <td>fiersa@gmail.com</td>
-        <td>0823456789</td>
-      </tr>
-
+      <?php foreach ($data['guru'] as $guru) : ?>
+        <tr>
+          <td><?= $guru['id']; ?></td>
+          <td><?= $guru['nama']; ?></td>
+          <td><?= $guru['nip']; ?> </td>
+          <td><?= $guru['alamat']; ?></td>
+          <td><?= $guru['email']; ?></td>
+          <td><?= $guru['no_hp']; ?></td>
+        </tr>
+      <?php endforeach; ?>
     </tbody>
   </table>
 
