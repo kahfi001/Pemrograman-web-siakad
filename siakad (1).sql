@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2021 at 09:36 AM
+-- Generation Time: Oct 24, 2021 at 11:14 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,9 +41,22 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id`, `nama`, `nip`, `alamat`, `email`, `no_hp`) VALUES
-(1, 'fiersa besari', '2302184', 'jakarta', 'fiesra@gmail.com', '084423131'),
-(2, 'tiara andini', '01847865', 'surabaya', 'tiara@gmail.com', '0867123412'),
-(3, 'coki pardede', '140781909', 'medan', 'coki@gmail.com', '085231266666');
+(1, 'Fiersa besari', '20013434534', 'Jakarta', 'fiersa@gmail.com', '851235567112'),
+(2, 'Tiara Andini', '20013434432', 'Bandung', 'tiara@gmail.com', '851235567332');
+
+--
+-- Triggers `guru`
+--
+DELIMITER $$
+CREATE TRIGGER `add_user_guru` AFTER INSERT ON `guru` FOR EACH ROW INSERT INTO users (username, nama, password, level)
+
+SELECT nip, nama, nip, 'guru' FROM guru ORDER BY id DESC LIMIT 1
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_user_guru` BEFORE DELETE ON `guru` FOR EACH ROW DELETE FROM users WHERE users.username = OLD.nip
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -87,32 +100,31 @@ INSERT INTO `mapel` (`id`, `nama_mapel`) VALUES
 (2, 'Bahasa Indonesia'),
 (3, 'Bahasa Inggris'),
 (4, 'PPKn'),
-(5, 'test');
+(5, 'olahraga'),
+(6, 'test');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `siswa` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `nis` varchar(255) NOT NULL,
-  `kelas` varchar(100) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
-  `no_hp` varchar(100) NOT NULL
+CREATE TABLE `users` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `nama` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `siswa`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `siswa` (`id`, `nama`, `nis`, `kelas`, `alamat`, `no_hp`) VALUES
-(1, 'muhammad kahfi', '014', '2', 'santa monica', '08888888888882'),
-(2, 'bagas dwi', '078', '2', 'beverly hills', '08888883'),
-(3, 'rizky januar', '043', '2', 'downtown', '088888881'),
-(4, 'filza hisana', '016', '2', 'san jose', '0881263');
+INSERT INTO `users` (`id`, `username`, `nama`, `password`, `level`) VALUES
+(1, '20013434534', 'Fiersa besari', '20013434534', 'guru'),
+(2, '20013434432', 'Tiara Andini', '20013434432', 'guru'),
+(4, 'admin', 'admin1', 'admin123', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -125,21 +137,15 @@ ALTER TABLE `guru`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kelas`
---
-ALTER TABLE `kelas`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `mapel`
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siswa`
+-- Indexes for table `users`
 --
-ALTER TABLE `siswa`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -150,25 +156,19 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `kelas`
---
-ALTER TABLE `kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `siswa`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
