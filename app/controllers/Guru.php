@@ -11,4 +11,12 @@ class Guru extends Controller
     $this->view('dataSekolah/guru', $data);
     $this->view('template/footer');
   }
+
+  public function addGuru()
+  {
+    if ($this->model('guru_model')->tambahDataGuru($_POST) > 0) {
+      header('Location: ' . BASEURL . '/guru');
+      exit;
+    }
+  }
 }

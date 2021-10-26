@@ -14,4 +14,21 @@ class guru_model
     $this->db->query('SELECT * FROM guru');
     return $this->db->resultSet();
   }
+
+  public function tambahDataGuru($data)
+  {
+    $query = "INSERT INTO guru VALUES ('', :nama, :nip , :alamat, :email, :no_hp)";
+    $this->db->query($query);
+    $this->db->bind('nama', $data['namaGuru']);
+    $this->db->bind('nip', $data['nip']);
+    $this->db->bind('alamat', $data['alamatGuru']);
+    $this->db->bind('email', $data['email']);
+    $this->db->bind('no_hp', $data['noHpGuru']);
+
+    $this->db->execute();
+
+    $count = $this->db->hitungBaris();
+
+    return $count;
+  }
 }

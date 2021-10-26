@@ -13,12 +13,13 @@
     <br><br>
     <input class="form-control me-2" type="search" placeholder="Cari Siswa " aria-label="Cari Siswa">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
+    <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal">Tambah Siswa</button>
   </form>
   <table class="table text-center">
     <thead>
       <tr>
         <th scope="col">No.</th>
-        <th scope="col">Name</th>
+        <th scope="col">Nama</th>
         <th scope="col">NIS</th>
         <th scope="col">Kelas</th>
         <th scope="col">Alamat</th>
@@ -38,5 +39,38 @@
       <?php endforeach; ?>
     </tbody>
   </table>
+</div>
 
+<div class="modal fade" id="siswaModal" tabindex="-1" aria-labelledby="judulSiswaModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulSiswaModal">Tambah Siswa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= BASEURL; ?>/siswa/addSiswa" method="post">
+          <div class="mb-3">
+            <label for="namaSiswa" class="form-label">Nama Siswa</label>
+            <input type="text" class="form-control" id="namaSiswa" name="namaSiswa">
+            <label for="nis" class="form-label">NIS</label>
+            <input type="number" class="form-control" id="nis" name="nis">
+            <label for="kelas" class="form-label">Kelas</label>
+            <select class="form-select" id="kelas" name="kelas">
+              <option selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            <label for="alamatSiswa" class="form-label">Alamat</label>
+            <input type="text" class="form-control" id="alamatSiswa" name="alamatSiswa">
+            <label for="noHpSiswa" class="form-label">No. Hp</label>
+            <input type="number" class="form-control" id="noHpSiswa" name="noHpSiswa">
+          </div>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-purple">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
