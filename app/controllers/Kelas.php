@@ -11,4 +11,12 @@ class Kelas extends Controller
     $this->view('dataSekolah/kelas', $data);
     $this->view('template/footer');
   }
+
+  public function addKelas()
+  {
+    if ($this->model('kelas_model')->tambahDataKelas($_POST) > 0) {
+      header('Location: ' . BASEURL . '/kelas');
+      exit;
+    }
+  }
 }

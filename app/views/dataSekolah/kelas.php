@@ -7,6 +7,7 @@
       <option value="2">Kelas 2</option>
       <option value="3">Kelas 3</option>
     </select>
+    <button type="button" class="btn btn-outline-warning w-25 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#kelasModal">Tambah Kelas</button>
   </form>
   <table class="table text-center">
     <thead>
@@ -30,4 +31,36 @@
     </tbody>
   </table>
 
+</div>
+
+<div class="modal fade" id="kelasModal" tabindex="-1" aria-labelledby="judulKelasModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulKelasModal">Tambah Kelas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= BASEURL; ?>/kelas/addKelas" method="post">
+          <div class="mb-3">
+            <label for="kelas" class="form-label">Kelas</label>
+            <select class="form-select" id="kelas" name="kelas">
+              <option selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <label for="waliKelas" class="form-label">Nama Wali kelas</label>
+            <input type="text" class="form-control" id="waliKelas" name="waliKelas">
+            <label for="jumlahMurid" class="form-label">Jumlah Murid</label>
+            <input type="number" class="form-control" id="jumlahMurid" name="jumlahMurid">
+          </div>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-purple">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
