@@ -7,7 +7,7 @@ class Mapel extends Controller{
         $data['tittle'] = 'Mata Pelajaran';
         $data['mapel'] = $this->model('mapel_model')->getAllMapel();
         $this->view('template/header', $data);
-        $this->view('template/navbar');
+        $this->view('template/navbar', $data);
         $this->view('mata-pelajaran/mapel', $data);
         $this->view('template/footer');
     }

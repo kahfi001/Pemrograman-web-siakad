@@ -6,7 +6,7 @@ class dataSekolah extends Controller
   {
     $data['tittle'] = 'Data Sekolah';
     $this->view('template/header', $data);
-    $this->view('template/navbar');
+    $this->view('template/navbar', $data);
     $this->view('dataSekolah/dataSekolah');
     $this->view('template/footer');
   }

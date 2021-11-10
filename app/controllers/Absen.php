@@ -6,7 +6,7 @@ class Absen extends Controller
   {
     $data['tittle'] = 'Absen';
     $this->view('template/header', $data);
-    $this->view('template/navbar');
+    $this->view('template/navbar', $data);
     $this->view('absen/absen');
     $this->view('template/footer');
   }
