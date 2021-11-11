@@ -14,7 +14,9 @@ class Login extends Controller
     {
         $data = $this->model('login_model')->checkLogin($_POST);
         if ($row = $this->model('login_model')->checkLogin($_POST) > 0) {
+
             session_start();
+            
             $_SESSION['username'] = $row['username'];
             $_SESSION['nama'] = $row['nama'];
             $_SESSION['level'] = $data['level'];
@@ -26,6 +28,7 @@ class Login extends Controller
             // $this->model('login_model')->isLoggedIn($_SESSION['session_login']);
 
             header('location: ' . BASEURL . '/dashboard');
+            
         } else {
             echo "
             <script>
