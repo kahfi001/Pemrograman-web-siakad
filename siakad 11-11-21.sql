@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2021 at 09:47 PM
+-- Generation Time: Nov 11, 2021 at 08:56 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -129,7 +129,23 @@ CREATE TABLE `siswa` (
 INSERT INTO `siswa` (`id`, `nama`, `nis`, `kelas`, `alamat`, `no_hp`) VALUES
 (1, 'andre', '54321', '4', 'kenjeran', '0897777'),
 (2, 'kholiqul', '54213', '2', 'ponorogo', '0986524567'),
-(3, 'bagas', '4567', '3', 'rungkut', '145656');
+(3, 'bagas', '4567', '3', 'rungkut', '145656'),
+(4, 'Fairuz', '00235', '1', 'Jl. Jati', '082233664451');
+
+--
+-- Triggers `siswa`
+--
+DELIMITER $$
+CREATE TRIGGER `add_user_siswa` AFTER INSERT ON `siswa` FOR EACH ROW INSERT INTO users (username, nama, password, level)
+
+SELECT siswa.nis, siswa.nama, siswa.nis, 'siswa' FROM siswa
+ORDER BY id DESC LIMIT 1
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_user_siswa` BEFORE DELETE ON `siswa` FOR EACH ROW DELETE FROM users WHERE users.username = OLD.nis
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -155,7 +171,8 @@ INSERT INTO `users` (`id`, `username`, `nama`, `password`, `level`) VALUES
 (4, 'admin', 'admin1', 'admin123', 'admin'),
 (7, '45213', 'sasuke', '45213', 'guru'),
 (8, '5123', 'naruto', '5123', 'guru'),
-(9, '231', 'anang', '231', 'guru');
+(9, '231', 'anang', '231', 'guru'),
+(11, '00235', 'Fairuz', '00235', 'siswa');
 
 --
 -- Indexes for dumped tables
@@ -217,13 +234,13 @@ ALTER TABLE `mapel`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
