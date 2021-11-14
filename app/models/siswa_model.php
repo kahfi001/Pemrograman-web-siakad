@@ -15,6 +15,20 @@ class siswa_model
     return $this->db->resultSet();
   }
 
+  public function getDataSiswaPerkelas($sesi)
+  {
+    $this->db->query("SELECT siswa.id, siswa.nama, siswa.nis, siswa.kelas, siswa.alamat, siswa.no_hp FROM siswa JOIN kelas ON siswa.kelas = kelas.kelas JOIN guru ON kelas.wali_kelas = guru.nama WHERE kelas.kelas = (SELECT kelas.kelas FROM kelas JOIN guru ON kelas.wali_kelas = guru.nama WHERE guru.nama ="."'".$sesi."'".")");
+    return $this->db->resultSet();
+  }
+
+  public function getSiswaByid($id)
+  {
+    $this->db->query('SELECT * FROM siswa WHERE id=:id');
+    $this->db->bind('id', $id);
+    return $this->db->single();
+
+  }
+
   public function tambahDataSiswa($data)
   {
     $query = "INSERT INTO siswa VALUES ('', :nama, :nis, :kelas, :alamat, :no_hp)";
