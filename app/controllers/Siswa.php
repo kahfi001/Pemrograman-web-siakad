@@ -11,6 +11,19 @@ class Siswa extends Controller
     $this->view('dataSekolah/siswa', $data);
     $this->view('template/footer');
   }
+
+  public function ubah()
+  {
+    if ($this->model('siswa_model')->ubahDataSiswa($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'diubah', 'success');
+      header('Location: ' . BASEURL . '/siswa');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'diubah', 'danger');
+      header('Location: ' . BASEURL . '/siswa');
+      exit;
+    }
+  }
   public function addSiswa()
   {
     if ($this->model('siswa_model')->tambahDataSiswa($_POST) > 0) {
@@ -35,5 +48,10 @@ class Siswa extends Controller
       header('Location: ' . BASEURL . '/siswa');
       exit;
     }
+  }
+
+  public function getubah()
+  {
+    echo json_encode($this->model('siswa_model')->getDataUbah($_POST['id']));
   }
 }
