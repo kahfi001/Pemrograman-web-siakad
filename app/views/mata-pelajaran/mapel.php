@@ -7,7 +7,7 @@
   <h3 class="my-3">Data Mata Pelajaran</h3>
   <hr>
 
-  <table class="table table-striped ">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>Mata Pelajaran</th>

@@ -9,7 +9,7 @@
     <input class="form-control me-2" type="search" placeholder="Cari Guru " aria-label="Cari Guru">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
     <?php if ($_SESSION['level'] != 'guru') { ?>
-      <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
+      <button type="button" class="btn btn-outline-warning w-75 ms-2 tombolTambahData" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
     <?php } ?>
   </form>
   <table class="table text-center">
@@ -31,7 +31,9 @@
           <td><?= $guru['alamat']; ?></td>
           <td><?= $guru['email']; ?></td>
           <td><?= $guru['no_hp']; ?></td>
-          <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a></td>
+          <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
+            <a href="<?= BASEURL; ?>/guru/ubah/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $guru['id']; ?>">Ubah</a>
+          </td>
         </tr>
       <?php endforeach; ?>
     </tbody>

@@ -28,4 +28,16 @@ class kelas_model
 
     return $count;
   }
+  public function hapusDataKelas($id)
+  {
+    $query = "DELETE FROM kelas WHERE id= :id";
+    $this->db->query($query);
+    $this->db->bind('id', $id);
+
+    $this->db->execute();
+
+    $count = $this->db->hitungBaris();
+
+    return $count;
+  }
 }

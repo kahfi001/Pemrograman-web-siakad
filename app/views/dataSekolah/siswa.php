@@ -22,7 +22,7 @@
     <input class="form-control me-2" type="search" placeholder="Cari Siswa " aria-label="Cari Siswa">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
     <?php if ($_SESSION['level'] != 'siswa') { ?>
-      <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal">Tambah Siswa</button>
+      <button type="button" class="btn btn-outline-warning w-75 ms-2 tombolTambahData" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal">Tambah Siswa</button>
     <?php } ?>
   </form>
   <table class="table text-center">
@@ -44,7 +44,10 @@
           <td><?= $siswa['kelas']; ?></td>
           <td><?= $siswa['alamat']; ?></td>
           <td><?= $siswa['no_hp']; ?></td>
-          <td><a href="<?= BASEURL; ?>/siswa/hapus/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a></td>
+          <td><a href="<?= BASEURL; ?>/siswa/hapus/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
+
+            <a href="<?= BASEURL; ?>/siswa/ubah/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal" data-id="<?= $siswa['id']; ?>">Ubah</a>
+          </td>
         </tr>
       <?php endforeach; ?>
     </tbody>
@@ -60,6 +63,7 @@
       </div>
       <div class="modal-body">
         <form action="<?= BASEURL; ?>/siswa/addSiswa" method="post">
+          <input type="hidden" name="id" id="id">
           <div class="mb-3">
             <label for="namaSiswa" class="form-label">Nama Siswa</label>
             <input type="text" class="form-control" id="namaSiswa" name="namaSiswa">

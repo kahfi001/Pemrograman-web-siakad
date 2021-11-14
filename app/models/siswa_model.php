@@ -58,4 +58,36 @@ class siswa_model
 
     return $count;
   }
+
+  public function getDataUbah($id)
+  {
+    $this->db->query('SELECT * FROM  siswa  WHERE id= :id');
+    $this->db->bind('id', $id);
+    return $this->db->single();
+  }
+
+  public function ubahDataSiswa($data)
+  {
+    $query = "UPDATE siswa SET  
+    nama = :namaSiswa, 
+    nis = :nis, 
+    kelas = :kelas, 
+    alamat = :alamatSiswa, 
+    no_hp = :noHpSiswa
+    WHERE id = :id;
+    ";
+    $this->db->query($query);
+    $this->db->bind('namaSiswa', $data['namaSiswa']);
+    $this->db->bind('nis', $data['nis']);
+    $this->db->bind('kelas', $data['kelas']);
+    $this->db->bind('alamatSiswa', $data['alamatSiswa']);
+    $this->db->bind('noHpSiswa', $data['noHpSiswa']);
+    $this->db->bind('id', $data['id']);
+
+    $this->db->execute();
+
+    $count = $this->db->hitungBaris();
+
+    return $count;
+  }
 }
