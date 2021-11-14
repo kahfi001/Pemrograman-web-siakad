@@ -1,10 +1,15 @@
 <div class="container mt-4 bg-light p-3 rounded">
+  <div class="row">
+    <div class="col-lg-6 ">
+      <?php Flasher::flash(); ?>
+    </div>
+  </div>
   <h1 class="text-center">Guru SDN 1 California</h1>
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Cari Guru " aria-label="Cari Guru">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
     <?php if ($_SESSION['level'] != 'guru') { ?>
-          <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
+      <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
     <?php } ?>
   </form>
   <table class="table text-center">
