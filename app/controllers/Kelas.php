@@ -11,7 +11,7 @@ class Kelas extends Controller
     $this->view('template/navbar');
     $this->view('dataSekolah/kelas', $data);
     $this->view('template/footer');
-  } 
+  }
 
   public function addKelas()
   {
@@ -21,6 +21,18 @@ class Kelas extends Controller
       exit;
     } else {
       Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+      header('Location: ' . BASEURL . '/kelas');
+      exit;
+    }
+  }
+  public function hapus($id)
+  {
+    if ($this->model('kelas_model')->hapusDatakelas($id) > 0) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/kelas');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
       header('Location: ' . BASEURL . '/kelas');
       exit;
     }

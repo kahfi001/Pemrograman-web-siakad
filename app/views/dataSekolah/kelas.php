@@ -28,8 +28,8 @@
           <td><?= $kelas['kelas']; ?></td>
           <td><?= $kelas['wali_kelas']; ?> </td>
           <td><?= $kelas['jumlah_murid']; ?></td>
-          <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
-            <a href="<?= BASEURL; ?>/guru/ubah/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $guru['id']; ?>">Ubah</a>
+          <td><a href="<?= BASEURL; ?>/kelas/hapus/<?= $kelas['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
+            <a href="<?= BASEURL; ?>/kelas/ubah/<?= $kelas['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $kelas['id']; ?>">Ubah</a>
           </td>
         </tr>
       <?php endforeach; ?>
