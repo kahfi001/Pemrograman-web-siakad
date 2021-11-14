@@ -2,12 +2,12 @@
   <h1 class="text-center">Kelas SDN 1 California</h1>
   <?php if ($_SESSION['level'] != 'guru') { ?>
   <form class="d-flex">
-    <select class="form-select" aria-label="Default select example">
+    <!-- <select class="form-select" aria-label="Default select example">
       <option selected>Pilih kelas</option>
       <option value="1">Kelas 1</option>
       <option value="2">Kelas 2</option>
       <option value="3">Kelas 3</option>
-    </select>
+    </select> -->
     
       <button type="button" class="btn btn-outline-warning w-25 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#kelasModal">Tambah Kelas</button>
     </form>
@@ -55,8 +55,12 @@
               <option value="5">5</option>
               <option value="6">6</option>
             </select>
-            <label for="waliKelas" class="form-label">Nama Wali kelas</label>
-            <input type="text" class="form-control" id="waliKelas" name="waliKelas">
+            <label for="waliKelas" class="form-label">Guru</label>
+            <select class="form-select" id="waliKelas" name="waliKelas">
+              <?php foreach ($data['guru'] as $guru) { ?>
+                <option selected value="<?= $guru['nama']; ?>"><?= $guru['nama']; ?></option>
+              <?php } ?>
+            </select>
             <label for="jumlahMurid" class="form-label">Jumlah Murid</label>
             <input type="number" class="form-control" id="jumlahMurid" name="jumlahMurid">
           </div>

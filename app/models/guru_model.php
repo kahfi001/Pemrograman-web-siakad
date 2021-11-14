@@ -15,6 +15,12 @@ class guru_model
     return $this->db->resultSet();
   }
 
+  public function getDataGuruTersedia()
+  {
+    $this->db->query('SELECT * FROM guru WHERE guru.nama NOT IN (SELECT kelas.wali_kelas FROM kelas)');
+    return $this->db->resultSet();
+  }
+
   public function tambahDataGuru($data)
   {
     $query = "INSERT INTO guru VALUES ('', :nama, :nip , :alamat, :email, :no_hp)";
