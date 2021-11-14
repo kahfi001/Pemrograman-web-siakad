@@ -1,5 +1,6 @@
 <div class="container mt-4 bg-light p-3 rounded">
   <h1 class="text-center">Kelas SDN 1 California</h1>
+  <?php if ($_SESSION['level'] != 'guru') { ?>
   <form class="d-flex">
     <select class="form-select" aria-label="Default select example">
       <option selected>Pilih kelas</option>
@@ -7,8 +8,10 @@
       <option value="2">Kelas 2</option>
       <option value="3">Kelas 3</option>
     </select>
-    <button type="button" class="btn btn-outline-warning w-25 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#kelasModal">Tambah Kelas</button>
-  </form>
+    
+      <button type="button" class="btn btn-outline-warning w-25 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#kelasModal">Tambah Kelas</button>
+    </form>
+    <?php } ?>
   <table class="table text-center">
     <thead>
       <tr>

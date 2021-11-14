@@ -3,7 +3,9 @@
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Cari Guru " aria-label="Cari Guru">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
-    <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
+    <?php if ($_SESSION['level'] != 'guru') { ?>
+          <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal">Tambah Guru</button>
+    <?php } ?>
   </form>
   <table class="table text-center">
     <thead>
