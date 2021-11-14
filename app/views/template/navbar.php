@@ -8,129 +8,120 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
 
-        <?php if ($_SESSION['level'] == 'admin') { ?>
-          <li class="nav-item">
-            <a class="nav-link 
+          <?php if ($_SESSION['level'] == 'admin') { ?>
+            <li class="nav-item">
+              <a class="nav-link 
             <?php
-              if ($data['tittle'] == 'Dashboard') {
-                echo 'active';
-              } 
-               echo '';  
-            ?>" 
-            href="<?= BASEURL; ?>/dashboard">
-            Dashboard </a>
-          </li> 
-          <li class=" nav-item">
-            <a class="nav-link  
-            <?php 
-              if ($data['tittle'] == 'Data Sekolah') {
-                echo 'active';
-              } 
-               echo '';
-            ?>" 
-            href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
-          </li>
-          <li class=" nav-item">
-            <a class="nav-link  <?php 
-              if ($data['tittle'] == 'Mata Pelajaran') {
-                echo 'active';
-              } 
-               echo '';
-            ?>" 
-            href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
-          </li>
+            if ($data['tittle'] == 'Dashboard') {
+              echo 'active';
+            }
+            echo '';
+            ?>" href="<?= BASEURL; ?>/dashboard">
+                Dashboard </a>
+            </li>
+            <li class=" nav-item">
+              <a class="nav-link  
+            <?php
+            if ($data['tittle'] == 'Data Sekolah') {
+              echo 'active';
+            }
+            echo '';
+            ?>" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
+            </li>
+            <li class=" nav-item">
+              <a class="nav-link  <?php
+                                  if ($data['tittle'] == 'Mata Pelajaran') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
+            </li>
           <?php } elseif ($_SESSION['level'] == 'guru') { ?>
             <li class="nav-item">
               <a class="nav-link 
               <?php
-                if ($data['tittle'] == 'Dashboard') {
-                  echo 'active';
-                } 
-                echo '';  
-              ?>" 
-              href="<?= BASEURL; ?>/dashboard">
-              Dashboard </a>
-            </li> 
+              if ($data['tittle'] == 'Dashboard') {
+                echo 'active';
+              }
+              echo '';
+              ?>" href="<?= BASEURL; ?>/dashboard">
+                Dashboard </a>
+            </li>
             <li class=" nav-item">
               <a class="nav-link  
-              <?php 
-                if ($data['tittle'] == 'Data Sekolah') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" 
-              href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
+              <?php
+              if ($data['tittle'] == 'Data Sekolah') {
+                echo 'active';
+              }
+              echo '';
+              ?>" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
             </li>
             <li class=" nav-item">
-              <a class="nav-link  <?php 
-                if ($data['tittle'] == 'Mata Pelajaran') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" 
-              href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
+              <a class="nav-link  <?php
+                                  if ($data['tittle'] == 'Mata Pelajaran') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php 
-                if ($data['tittle'] == 'List Raport') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
+              <a class="nav-link <?php
+                                  if ($data['tittle'] == 'List Raport') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php 
-                if ($data['tittle'] == 'Absen') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" href="<?= BASEURL; ?>/absen">Absen</a>
+              <a class="nav-link <?php
+                                  if ($data['tittle'] == 'Absen') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/absen">Absen</a>
             </li>
           <?php } else { ?>
             <li class="nav-item">
               <a class="nav-link 
               <?php
-                if ($data['tittle'] == 'Dashboard') {
-                  echo 'active';
-                } 
-                echo '';  
-              ?>" 
-              href="<?= BASEURL; ?>/dashboard">
-              Dashboard </a>
-            </li> 
+              if ($data['tittle'] == 'Dashboard') {
+                echo 'active';
+              }
+              echo '';
+              ?>" href="<?= BASEURL; ?>/dashboard">
+                Dashboard </a>
+            </li>
             <li class=" nav-item">
               <a class="nav-link  
-              <?php 
-                if ($data['tittle'] == 'Data Sekolah') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" 
-              href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
+              <?php
+              if ($data['tittle'] == 'Data Sekolah') {
+                echo 'active';
+              }
+              echo '';
+              ?>" href="<?= BASEURL; ?>/dataSekolah">Data Sekolah</a>
             </li>
             <li class=" nav-item">
-              <a class="nav-link  <?php 
-                if ($data['tittle'] == 'Mata Pelajaran') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" 
-              href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
+              <a class="nav-link  <?php
+                                  if ($data['tittle'] == 'Mata Pelajaran') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/mapel">Jadwal Pelajaran</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php 
-                if ($data['tittle'] == 'List Raport') {
-                  echo 'active';
-                } 
-                echo '';
-              ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
+              <a class="nav-link <?php
+                                  if ($data['tittle'] == 'List Raport') {
+                                    echo 'active';
+                                  }
+                                  echo '';
+                                  ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
             </li>
           <?php } ?>
-            <li class="nav-item">
-              <a class="nav-link" href="<?= BASEURL; ?>/logout">
-                <i class="bi bi-box-arrow-left"></i> Logout
-              </a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= BASEURL; ?>/logout">
+              <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -138,7 +129,7 @@
   <!-- Profil -->
   <div class="d-flex justify-content-center align-items-center my-4">
     <div class="">
-      <img src="<?= BASEURL; ?>/img/profile.png" alt="..." class=" me-5 rounded-circle" width="100px">
+      <img src="<?= BASEURL; ?>/img/user.png" alt="..." class=" me-5 rounded-circle" width="100px">
     </div>
     <div class="" style="color: #fff;">
       <h3 class="mb-0 text-uppercase"><?= $_SESSION['nama']; ?></h3>
