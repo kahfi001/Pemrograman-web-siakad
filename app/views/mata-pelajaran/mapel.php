@@ -1,6 +1,8 @@
 <div class="container mt-4 bg-light p-3">
   <button type="button" class="btn" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#mapelModal">Tambah Mata Pelajaran</button>
-  <button type="button" class="btn" style="background-color: purple; color: white;">Atur jadwal Mata Pelajaran</button>
+  <a class="nav-links" href="<?= BASEURL; ?>/setMapel">
+    <button type="button" class="btn" style="background-color: purple; color: white;">Atur jadwal Mata Pelajaran</button>
+  </a>
 
   <h3 class="my-3">Data Mata Pelajaran</h3>
   <hr>
