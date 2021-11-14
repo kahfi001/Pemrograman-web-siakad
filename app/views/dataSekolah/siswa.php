@@ -28,23 +28,23 @@
   <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">No.</th>
         <th scope="col">Nama</th>
         <th scope="col">NIS</th>
         <th scope="col">Kelas</th>
         <th scope="col">Alamat</th>
         <th scope="col">No.Hp</th>
+        <th scope="col">Aksi</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($data['siswa'] as $siswa) : ?>
         <tr>
-          <td><?= $siswa['id']; ?></td>
           <td><?= $siswa['nama']; ?></td>
           <td><?= $siswa['nis']; ?> </td>
           <td><?= $siswa['kelas']; ?></td>
           <td><?= $siswa['alamat']; ?></td>
           <td><?= $siswa['no_hp']; ?></td>
+          <td><a href="<?= BASEURL; ?>/siswa/hapus/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

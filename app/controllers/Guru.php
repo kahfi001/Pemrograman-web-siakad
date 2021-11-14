@@ -24,4 +24,16 @@ class Guru extends Controller
       exit;
     }
   }
+  public function hapus($id)
+  {
+    if ($this->model('guru_model')->hapusDataGuru($id) > 0) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/guru');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/guru');
+      exit;
+    }
+  }
 }

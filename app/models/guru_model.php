@@ -31,4 +31,17 @@ class guru_model
 
     return $count;
   }
+
+  public function hapusDataGuru($id)
+  {
+    $query = "DELETE FROM guru WHERE id= :id";
+    $this->db->query($query);
+    $this->db->bind('id', $id);
+
+    $this->db->execute();
+
+    $count = $this->db->hitungBaris();
+
+    return $count;
+  }
 }

@@ -28,4 +28,16 @@ class mapel_model
 
         return $count;
     }
+    public function hapusDataMapel($id)
+    {
+        $query = "DELETE FROM mapel WHERE id= :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        $count = $this->db->hitungBaris();
+
+        return $count;
+    }
 }

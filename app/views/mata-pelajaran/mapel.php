@@ -7,16 +7,18 @@
   <h3 class="my-3">Data Mata Pelajaran</h3>
   <hr>
 
-  <table class="table table-striped">
+  <table class="table table-striped ">
     <thead>
       <tr>
-        <th scope="col">Mata Pelajaran</th>
+        <th>Mata Pelajaran</th>
+        <th class="float-end">Aksi</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($data['mapel'] as $mapel) : ?>
         <tr>
           <td><?= $mapel['nama_mapel']; ?></td>
+          <td><a href="<?= BASEURL; ?>/mapel/hapus/<?= $mapel['id']; ?>" class="badge btn-outline-warning text-decoration-none float-end" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

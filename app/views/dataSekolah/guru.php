@@ -15,23 +15,23 @@
   <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">No</th>
         <th scope="col">Name</th>
         <th scope="col">NIP</th>
         <th scope="col">Alamat</th>
         <th scope="col">Email</th>
         <th scope="col">No.Hp</th>
+        <th scope="col">Aksi</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach ($data['guru'] as $guru) : ?>
         <tr>
-          <td><?= $guru['id']; ?></td>
           <td><?= $guru['nama']; ?></td>
           <td><?= $guru['nip']; ?> </td>
           <td><?= $guru['alamat']; ?></td>
           <td><?= $guru['email']; ?></td>
           <td><?= $guru['no_hp']; ?></td>
+          <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
