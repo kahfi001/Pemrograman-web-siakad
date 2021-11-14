@@ -1,4 +1,12 @@
 <div class="container mt-4 bg-light p-3 rounded">
+
+  <div class="row">
+    <div class="col-lg-6 ">
+      <?php Flasher::flash(); ?>
+    </div>
+  </div>
+
+
   <h1 class="text-center">Siswa SDN 1 California</h1>
   <form class="d-flex">
     <select class="form-select" aria-label="Default select example">
