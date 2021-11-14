@@ -13,7 +13,9 @@
     <br><br>
     <input class="form-control me-2" type="search" placeholder="Cari Siswa " aria-label="Cari Siswa">
     <button type="button" class="btn btn-outline-warning" style="background-color: purple; color: white;">Cari</button>
-    <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal">Tambah Siswa</button>
+    <?php if ($_SESSION['level'] != 'siswa') { ?>
+      <button type="button" class="btn btn-outline-warning w-75 ms-2" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal">Tambah Siswa</button>
+    <?php } ?>
   </form>
   <table class="table text-center">
     <thead>
