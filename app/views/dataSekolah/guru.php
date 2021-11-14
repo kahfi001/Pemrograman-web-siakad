@@ -37,7 +37,6 @@
     </tbody>
   </table>
 </div>
-
 <div class="modal fade" id="guruModal" tabindex="-1" aria-labelledby="judulGuruModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

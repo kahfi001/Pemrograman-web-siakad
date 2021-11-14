@@ -13,7 +13,7 @@ class Guru extends Controller
   }
 
   public function addGuru()
-  {
+  { 
     if ($this->model('guru_model')->tambahDataGuru($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
       header('Location: ' . BASEURL . '/guru');

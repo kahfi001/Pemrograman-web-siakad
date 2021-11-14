@@ -11,6 +11,7 @@ class Flasher
       'tipe' => $tipe
     ];
   }
+  
 
   public static function flash()
   {
