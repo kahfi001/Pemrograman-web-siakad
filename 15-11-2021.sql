@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2021 at 08:56 AM
+-- Generation Time: Nov 15, 2021 at 09:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `siakad`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -79,10 +92,12 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `kelas`, `wali_kelas`, `jumlah_murid`) VALUES
-(1, '1A', 'Endank Nurhayati', '30'),
-(2, '2A', 'Juhairi Wong', '24'),
-(3, '3A', 'Nur Romanoff', '32'),
-(4, '5', 'Budiwati', '32');
+(1, '6', 'Endank Nurhayati', '30'),
+(2, '2', 'Juhairi Wong', '24'),
+(3, '3', 'sasuke', '32'),
+(4, '5', 'Budiwati', '32'),
+(5, '1', 'Tiara Andini', '52'),
+(6, '4', 'anang', '11');
 
 -- --------------------------------------------------------
 
@@ -104,8 +119,39 @@ INSERT INTO `mapel` (`id`, `nama_mapel`) VALUES
 (2, 'Bahasa Indonesia'),
 (3, 'Bahasa Inggris'),
 (4, 'PPKn'),
-(5, 'olahraga'),
-(6, 'test');
+(5, 'olahraga');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nilai`
+--
+
+CREATE TABLE `nilai` (
+  `id` int(11) NOT NULL,
+  `jenis_penilaian` varchar(255) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `nama_siswa` varchar(255) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `semester` varchar(255) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `nilai` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nilai`
+--
+
+INSERT INTO `nilai` (`id`, `jenis_penilaian`, `id_siswa`, `nama_siswa`, `id_kelas`, `id_guru`, `semester`, `id_mapel`, `nilai`) VALUES
+(7, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 1, 70),
+(8, 'UAS', 3, 'bagas', 3, 45213, 'Ganjil', 2, 90),
+(9, 'UTS', 3, 'bagas', 3, 45213, 'Ganjil', 1, 70),
+(10, 'Ulangan Harian', 5, 'M. Kahfi Djardjani', 3, 45213, 'Ganjil', 2, 90),
+(11, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 1, 80),
+(12, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 2, 80),
+(13, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 2, 90),
+(14, 'UTS', 5, 'M. Kahfi Djardjani', 3, 45213, 'Ganjil', 1, 90);
 
 -- --------------------------------------------------------
 
@@ -130,7 +176,7 @@ INSERT INTO `siswa` (`id`, `nama`, `nis`, `kelas`, `alamat`, `no_hp`) VALUES
 (1, 'andre', '54321', '4', 'kenjeran', '0897777'),
 (2, 'kholiqul', '54213', '2', 'ponorogo', '0986524567'),
 (3, 'bagas', '4567', '3', 'rungkut', '145656'),
-(4, 'Fairuz', '00235', '1', 'Jl. Jati', '082233664451');
+(5, 'M. Kahfi Djardjani', '20001322034', '3', 'jl. Mawar, Jakarta ', '0822342324934');
 
 --
 -- Triggers `siswa`
@@ -172,11 +218,17 @@ INSERT INTO `users` (`id`, `username`, `nama`, `password`, `level`) VALUES
 (7, '45213', 'sasuke', '45213', 'guru'),
 (8, '5123', 'naruto', '5123', 'guru'),
 (9, '231', 'anang', '231', 'guru'),
-(11, '00235', 'Fairuz', '00235', 'siswa');
+(12, '20001322034', 'M. Kahfi Djardjani', '20001322034', 'siswa');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guru`
@@ -188,12 +240,19 @@ ALTER TABLE `guru`
 -- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kelas` (`kelas`);
 
 --
 -- Indexes for table `mapel`
 --
 ALTER TABLE `mapel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nilai`
+--
+ALTER TABLE `nilai`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -213,6 +272,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
@@ -222,7 +287,7 @@ ALTER TABLE `guru`
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `mapel`
@@ -231,16 +296,22 @@ ALTER TABLE `mapel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `nilai`
+--
+ALTER TABLE `nilai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
