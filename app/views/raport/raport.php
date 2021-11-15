@@ -20,14 +20,17 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th scope="col">Jenis Penilaian</th>
         <th scope="col">Mata Pelajaran</th>
         <th scope="col">Nilai</th>
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($data['mapel'] as $mapel) : ?>
+      <?php foreach ($data['inputNilai'] as $nilai) : ?>
         <tr>
-          <td><?= $mapel['nama_mapel']; ?></td>
+          <td><?= $nilai['jenis_penilaian']; ?></td>
+          <td><?= $nilai['nama_mapel']; ?></td>
+          <td><?= $nilai['nilai']; ?></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
@@ -44,19 +47,37 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="<?= BASEURL; ?>/raport/addPenilaian/<?= $data['detailSiswa']['id']; ?>" method="POST">
+          <div class="mb-3">
+            <label class="form-label">Semester</label>
+            <select class="form-select" name="semester" id="semester">
+                <option selected value="Ganjil">Ganjil</option>
+            </select>
+          </div>
           <div class="mb-3">
             <label class="form-label">Nama Mata Pelajaran</label>
-            <select class="form-select" name="mapel" id="mapel">
+            <select class="form-select" name="id_mapel" id="id_mapel">
               <?php foreach ($data['mapel'] as $mapel) { ?>
-                <option selected value="<?= $mapel['nama_mapel']; ?>"><?= $mapel['nama_mapel']; ?></option>
+                <option value="<?= $mapel['id']; ?>"><?= $mapel['nama_mapel']; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label">Nilai</label>
-            <input type="text" class="form-control" id="inputNamaMapel" name="namaMapel">
+            <label class="form-label">Jenis Nilai</label>
+            <select class="form-select" name="jenis_penilaian" id="jenis_penilaian">
+                <option selected value="Ulangan Harian">Ulangan Harian</option>
+                <option value="UTS">UTS</option>
+                <option value="UAS">UAS</option>
+            </select>
           </div>
+          <div class="mb-3">
+            <label class="form-label">Nilai</label>
+            <input type="text" class="form-control" id="nilai" name="nilai">
+          </div>
+          <input type="hidden" name="id_siswa" id="id_siswa" value="<?= $data['detailSiswa']['id']; ?>">
+          <input type="hidden" name="nama_siswa" id="nama_siswa" value="<?= $data['detailSiswa']['nama']; ?>">
+          <input type="hidden" name="id_kelas" id="id_kelas" value="<?= $data['detailSiswa']['kelas']; ?>">
+          <input type="hidden" name="id_guru" id="id_guru" value="<?= $_SESSION['nip']; ?>">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
