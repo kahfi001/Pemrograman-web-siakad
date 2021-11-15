@@ -35,7 +35,9 @@
       <?php endforeach; ?>
     </tbody>
   </table>
-  <button type="submit" class="btn" style="background-color: purple; color: white;">Submit</button>
+  <a class="nav-links" href="<?= BASEURL; ?>/listRaport">
+    <button type="submit" class="btn" style="background-color: purple; color: white;">Submit</button>
+  </a>
 
 </div>
 

@@ -33,7 +33,7 @@
         <th scope="col">Kelas</th>
         <th scope="col">Alamat</th>
         <th scope="col">No.Hp</th>
-        <th scope="col">Aksi</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -44,10 +44,12 @@
           <td><?= $siswa['kelas']; ?></td>
           <td><?= $siswa['alamat']; ?></td>
           <td><?= $siswa['no_hp']; ?></td>
-          <td><a href="<?= BASEURL; ?>/siswa/hapus/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
-
-            <a href="<?= BASEURL; ?>/siswa/ubah/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal" data-id="<?= $siswa['id']; ?>">Ubah</a>
-          </td>
+          <?php if ($_SESSION['level'] != 'siswa') { ?>
+            <td><a href="<?= BASEURL; ?>/siswa/hapus/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
+  
+              <a href="<?= BASEURL; ?>/siswa/ubah/<?= $siswa['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#siswaModal" data-id="<?= $siswa['id']; ?>">Ubah</a>
+            </td>
+          <?php } ?>
         </tr>
       <?php endforeach; ?>
     </tbody>

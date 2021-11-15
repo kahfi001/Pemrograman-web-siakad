@@ -28,6 +28,13 @@ class siswa_model
     return $this->db->single();
 
   }
+  public function getSiswaBynis($nis)
+  {
+    $this->db->query('SELECT * FROM siswa WHERE nis=:nis');
+    $this->db->bind('nis', $nis);
+    return $this->db->single();
+
+  }
 
   public function tambahDataSiswa($data)
   {

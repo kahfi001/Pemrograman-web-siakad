@@ -71,7 +71,7 @@
           </a>
         </div>
         <div class="col-4">
-          <a href="<?= BASEURL; ?>/listRaport" class="text-decoration-none">
+          <a href="<?= BASEURL; ?>/raportSiswa" class="text-decoration-none">
             <div class="fitur p-3  text-center rounded " style="background-color : rgba(255,255,255,0.4)">
               <i class="bi bi-layout-text-sidebar" style="font-size : 75px; color:#FFC007;"></i>
               <p style="color: white; font-size:25px">Raport</p>

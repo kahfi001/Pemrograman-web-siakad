@@ -20,7 +20,7 @@
         <th scope="col">Alamat</th>
         <th scope="col">Email</th>
         <th scope="col">No.Hp</th>
-        <th scope="col">Aksi</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -31,9 +31,11 @@
           <td><?= $guru['alamat']; ?></td>
           <td><?= $guru['email']; ?></td>
           <td><?= $guru['no_hp']; ?></td>
-          <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
-            <a href="<?= BASEURL; ?>/guru/ubah/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $guru['id']; ?>">Ubah</a>
-          </td>
+          <?php if ($_SESSION['level'] != 'guru') { ?>
+            <td><a href="<?= BASEURL; ?>/guru/hapus/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
+              <a href="<?= BASEURL; ?>/guru/ubah/<?= $guru['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $guru['id']; ?>">Ubah</a>
+            </td>
+          <?php } ?>
         </tr>
       <?php endforeach; ?>
     </tbody>

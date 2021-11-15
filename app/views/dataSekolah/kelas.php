@@ -17,7 +17,7 @@
         <th scope="col">Kelas</th>
         <th scope="col">Wali Kelas</th>
         <th scope="col">Jumlah Murid</th>
-        <th scope="col">Aksi</th>
+        <th scope="col"></th>
 
       </tr>
     </thead>
@@ -28,9 +28,11 @@
           <td><?= $kelas['kelas']; ?></td>
           <td><?= $kelas['wali_kelas']; ?> </td>
           <td><?= $kelas['jumlah_murid']; ?></td>
+          <?php if ($_SESSION['level'] != 'guru') { ?>
           <td><a href="<?= BASEURL; ?>/kelas/hapus/<?= $kelas['id']; ?>" class="badge btn-outline-warning text-decoration-none" style="background-color: purple; color: white;" onclick="return confirm('Data akan dihapus ?');">Hapus</a>
             <a href="<?= BASEURL; ?>/kelas/ubah/<?= $kelas['id']; ?>" class="badge btn-outline-warning text-decoration-none ms-2 tampilModalUbah" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#guruModal" data-id="<?= $kelas['id']; ?>">Ubah</a>
           </td>
+          <?php } ?>
         </tr>
       <?php endforeach; ?>
     </tbody>

@@ -110,11 +110,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link <?php
-                                  if ($data['tittle'] == 'List Raport') {
+                                  if ($data['tittle'] == 'Raport') {
                                     echo 'active';
                                   }
                                   echo '';
-                                  ?>" href="<?= BASEURL; ?>/listRaport">Raport </a>
+                                  ?>" href="<?= BASEURL; ?>/raportSiswa">Raport </a>
             </li>
           <?php } ?>
           <li class="nav-item">

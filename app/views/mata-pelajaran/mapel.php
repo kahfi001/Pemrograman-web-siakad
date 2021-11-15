@@ -1,5 +1,12 @@
 <div class="container mt-4 bg-light p-3">
-  <button type="button" class="btn" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#mapelModal">Tambah Mata Pelajaran</button>
+
+  <?php if ($_SESSION['level'] != 'admin') { ?>
+    
+  <?php }  else { ?>
+    <button type="button" class="btn" style="background-color: purple; color: white;" data-bs-toggle="modal" data-bs-target="#mapelModal">Tambah Mata Pelajaran</button>
+    
+  <?php } ?>
+
   <!-- <a class="nav-links" href="<?= BASEURL; ?>/setMapel">
     <button type="button" class="btn" style="background-color: purple; color: white;">Atur jadwal Mata Pelajaran</button>
   </a> -->
@@ -11,7 +18,7 @@
     <thead>
       <tr>
         <th>Mata Pelajaran</th>
-        <th class="float-end">Aksi</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
