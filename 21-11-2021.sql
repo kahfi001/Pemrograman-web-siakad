@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2021 at 09:38 AM
+-- Generation Time: Nov 21, 2021 at 08:37 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -31,8 +31,15 @@ CREATE TABLE `absensi` (
   `id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `id_siswa` int(11) NOT NULL,
-  `id_guru` int(11) NOT NULL
+  `nip_guru` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `tanggal`, `id_siswa`, `nip_guru`) VALUES
+(2, '2021-11-21', 3, 45213);
 
 -- --------------------------------------------------------
 
@@ -58,7 +65,8 @@ INSERT INTO `guru` (`id`, `nama`, `nip`, `alamat`, `email`, `no_hp`) VALUES
 (2, 'Tiara Andini', '20013434432', 'Bandung', 'tiara@gmail.com', '851235567332'),
 (6, 'sasuke', '45213', 'jalan imam bonjol gang mimbar no.72 singaraja, bali', 'sadfeaf@afd', '081246504639'),
 (7, 'naruto', '5123', 'jalan imam bonjol gang mimbar no.72 singaraja, bali', 'naruto@gmail.com', '081246504639'),
-(8, 'anang', '231', 'bogor', 'anang@gmail.com', '089999999');
+(8, 'anang', '231', 'bogor', 'anang@gmail.com', '089999999'),
+(9, 'Bagas', '200513246656', 'Jl. Melati', 'bag12dwi.s@gmail.com', '082233664451');
 
 --
 -- Triggers `guru`
@@ -119,7 +127,8 @@ INSERT INTO `mapel` (`id`, `nama_mapel`) VALUES
 (2, 'Bahasa Indonesia'),
 (3, 'Bahasa Inggris'),
 (4, 'PPKn'),
-(5, 'olahraga');
+(5, 'olahraga'),
+(7, 'IPA');
 
 -- --------------------------------------------------------
 
@@ -151,7 +160,8 @@ INSERT INTO `nilai` (`id`, `jenis_penilaian`, `id_siswa`, `nama_siswa`, `id_kela
 (11, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 1, 80),
 (12, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 2, 80),
 (13, 'Ulangan Harian', 3, 'bagas', 3, 45213, 'Ganjil', 2, 90),
-(14, 'UTS', 5, 'M. Kahfi Djardjani', 3, 45213, 'Ganjil', 1, 90);
+(14, 'UTS', 5, 'M. Kahfi Djardjani', 3, 45213, 'Ganjil', 1, 90),
+(15, 'UAS', 3, 'bagas', 3, 45213, 'Ganjil', 7, 80);
 
 -- --------------------------------------------------------
 
@@ -176,7 +186,8 @@ INSERT INTO `siswa` (`id`, `nama`, `nis`, `kelas`, `alamat`, `no_hp`) VALUES
 (1, 'andre', '54321', '4', 'kenjeran', '0897777'),
 (2, 'kholiqul', '54213', '2', 'ponorogo', '0986524567'),
 (3, 'bagas', '4567', '3', 'rungkut', '145656'),
-(5, 'M. Kahfi Djardjani', '20001322034', '3', 'jl. Mawar, Jakarta ', '0822342324934');
+(5, 'M. Kahfi Djardjani', '20001322034', '3', 'jl. Mawar, Jakarta ', '0822342324934'),
+(6, 'Fairuz', '5000352', '3', 'jl. Mawar, Jakarta ', '08555466565');
 
 --
 -- Triggers `siswa`
@@ -218,7 +229,9 @@ INSERT INTO `users` (`id`, `username`, `nama`, `password`, `level`) VALUES
 (7, '45213', 'sasuke', '45213', 'guru'),
 (8, '5123', 'naruto', '5123', 'guru'),
 (9, '231', 'anang', '231', 'guru'),
-(12, '20001322034', 'M. Kahfi Djardjani', '20001322034', 'siswa');
+(12, '20001322034', 'M. Kahfi Djardjani', '20001322034', 'siswa'),
+(13, '200513246656', 'Bagas', '200513246656', 'guru'),
+(14, '5000352', 'Fairuz', '5000352', 'siswa');
 
 --
 -- Indexes for dumped tables
@@ -275,43 +288,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `mapel`
 --
 ALTER TABLE `mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
