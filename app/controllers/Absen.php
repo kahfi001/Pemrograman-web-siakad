@@ -11,4 +11,12 @@ class Absen extends Controller
     $this->view('absen/absen', $data);
     $this->view('template/footer');
   }
+
+  public function addAbsensi()
+  {
+    if ($this->model('absensi_model')->inputAbsen($_POST) > 0) {
+      header('Location: '. BASEURL . '/mapel');
+      exit;
+    }
+  }
 }

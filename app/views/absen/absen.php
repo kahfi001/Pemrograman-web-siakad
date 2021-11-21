@@ -17,7 +17,7 @@
                 <td><?= $siswa['nis']; ?></td>
                 <td><?= $siswa['nama']; ?></td>
                 <td>
-                  <form action="">
+                  <form action="<?= BASEURL; ?>/absen/addAbsensi" method="post">
                     <input type="hidden" name="id_siswa" id="id_siswa" value="<?= $siswa['id']; ?>">
                     <input type="hidden" name="nip_guru" id="nip_guru" value="<?= $_SESSION['nip']; ?>">
                     <button type="button" class="btn" style="background-color: purple; color: white;">Hadir</button>
