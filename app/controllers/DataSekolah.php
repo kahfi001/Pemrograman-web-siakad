@@ -1,15 +1,13 @@
 <?php
 
-class Dashboard extends Controller
+class dataSekolah extends Controller
 {
   public function index()
   {
-
-    session_start();
-    $data['tittle'] = 'Dashboard';
+    $data['tittle'] = 'Data Sekolah';
     $this->view('template/header', $data);
     $this->view('template/navbar', $data);
-    $this->view('dashboard/dashboard', $data);
+    $this->view('dataSekolah/dataSekolah');
     $this->view('template/footer');
   }
 }

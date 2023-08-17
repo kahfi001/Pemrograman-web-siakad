@@ -1,3 +1,10 @@
+<?php 
+
+session_unset();
+session_destroy(); 
+
+?>
+
 <img src="<?= BASEURL; ?>/img/Unesa.png" class="rounded mx-auto m-5 d-block" style="width: 150px;">
 <h1 class="text-center m-5">Sistem Informasi Akademik SD TERPADU</h1>
 
